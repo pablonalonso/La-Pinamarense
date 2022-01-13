@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    {% block content %}
+        <div style="height: 800px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+            {% if "valido" in request.GET %}
+                <p style="color: greenyellow;">Informacion enviada correctamente!</p>
+            {% endif %}
+            
+            <form action="" method="POST" ">{% csrf_token %}
+                <div style="background-color: rgba(149, 195, 255, 0.678);border-radius: 20px; padding: 20px; height: 400px;width: 100%; margin: auto; ">
+                    <table style="padding: 20px; margin-top: 20px;">{{formulario_key.as_table}}</table>
+                </div>
+                <button type="submit" style="position: absolute; left: 650px; bottom: -260px; border: none; padding: 4px 8px; border-radius: 10px;">Enviar</button>
+                
+            </form>
+        </div>
+
+    {% endblock %}
+</body>
+</html>

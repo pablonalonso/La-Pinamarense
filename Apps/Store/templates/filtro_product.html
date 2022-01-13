@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="container">
+
+        <div style="float: right; margin-top: 40px; height: 500px; width: 250px; margin-left: -60px; margin-right: -80px;border-radius: 20px; background-color: rgba(67, 185, 57, 0.932); padding-top: 30px; padding-left: 10px; padding-right: 10px;">
+            <i class="fas fa-shopping-cart" style="margin-left: 30px; font-size: 18px; color: rgba(0, 0, 0, 0.555);">Carrito de la compra</i>
+            <p style="text-align: center; font-size: smaller; color: rgba(0, 0, 0, 0.979); margin-top: 20px;">Agregue los productos que desea comprar aqui.</p>
+            <p style="color: rgb(255, 255, 255); text-align: center;"> Importe total: ${{total_key}}</p>
+
+            {% include "shopping_cart/widget.html" %}
+
+        </div>
+    
+        {% if all_products_filtered_key %}
+            <section>
+                <div style="width: 60%; background-color: rgba(255, 255, 255, 0.568); padding: 15px;margin: auto ;text-align: center; height: 50px; border-radius: 50px; margin-top: 100px;">
+                <span>Productos pertenecientes a la categoria: {{category_product_filter_key.nombre}}</span> 
+                </div>
+            </section>
+
+            <div class="row"" style="margin-bottom: 80px;">
+                {% for p in all_products_filtered_key %}
+                    <div class="col-md-3" style="width: 80%;">
+                        <div class="card"" style="background-color: rgb(255, 102, 102); margin-top: 40px; margin-left: -100px; margin-bottom: 40px; height: 390px; border-radius: 20px; width: 200px;">
+                            <img class="card-img-top" src="{{p.imagen.url}}" alt="" style="width: 200px; height: 100%; object-fit:cover; border-radius: 20px;">
+                            <div class="card-body" style="color: white;">
+                                <h7>{{p.nombre}}</h7>
+                                <p>{{p.precio}}</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn btn-success">Agregar articulo</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% else %}
+        <section>
+            <div style="width: 60%; background-color: rgba(255, 255, 255, 0.568); padding: 15px;margin: auto ;text-align: center; height: 50px; border-radius: 50px; margin-top: 100px; margin-bottom: 100px;">
+            <span>No hay productos en stock. </span> 
+            </div>
+        </section>
+        {% endif %}
+
+
+    </div>
+
+    {% endblock %}
+
+</body>
+</html>
+

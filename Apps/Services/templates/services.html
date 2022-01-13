@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<html>
+
+<head>
+    <title>Promos</title>
+</head>
+
+<body>
+    {% block content %}
+        <div class="container">
+            <div style="float: right; margin-top: 40px; height: 500px; width: 250px; margin-left: -60px; margin-right: -80px; border-radius: 20px; background-color: rgba(67, 185, 57, 0.932); padding-top: 30px; padding-left: 10px; padding-right: 10px;">
+                <i class="fas fa-shopping-cart" style="margin-left: 30px; font-size: 18px; color: rgba(0, 0, 0, 0.555);">Carrito de la compra</i>
+                <p style="text-align: center; font-size: smaller; color: rgba(0, 0, 0, 0.979); margin-top: 20px;">Agregue los productos que desea comprar aqui.</p>
+                {% include "shopping_cart/widget.html" %}
+            </div>
+
+            <div class="row"">
+                {% for p in all_services_key %}
+                    <div class="col-md-3" style="width: 80%;">
+                        <div class="card"" style="background-color: rgb(255, 102, 102); margin-top: 40px; margin-left: -100px; margin-bottom: 40px; height: 390px; border-radius: 20px; width: 200px;">
+                            <img class="card-img-top" src="{{p.imagen.url}}" alt="" style="width: 200px; height: 180px; object-fit:cover; border-radius: 20px;">
+                            <div class="card-body" style="color: white;">
+                                <h5 style="font-weight: bolder;">{{p.titulo}}</h5>
+                                <p>$ {{p.contenido}}</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="{% url 'cart:add' p.id %}" class="btn btn-success">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+
+</body>
+
+
+</html>

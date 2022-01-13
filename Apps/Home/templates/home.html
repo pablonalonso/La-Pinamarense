@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/bfc51b6323.js" crossorigin="anonymous"></script>
+
+  </head>
+
+<body>
+    {% block content %}
+
+   <!-- Heading -->
+   <section class="page-section clearfix" >
+    <div class="container" >
+      <div class="intro" >
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'img/jamon.jpg' %}" alt="" style="object-fit: cover;border-radius: 100px !important;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color: rgba(253, 120, 120, 0.849); object-fit: cover;border-radius: 90px !important; ">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">Buena atencion</span>
+            <span class="section-heading-lower">Calidad en fiambres </span>
+          </h2>
+          <p class="mb-3">No puedes comprar la felicidad, pero sí comprar de La Pinama unos ricos fiambres. Te aseguramos que te hará feliz en verdad.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+    <!-- Message -->
+    <section class="page-section cta" style="background-color: rgba(255, 45, 45, 0.582); width: 60%; margin: 70px auto; border-radius: 100px !important;">
+      <div class="container" >
+        <div class="row">
+          <div class="col-xl-9 mx-auto" >
+            <div class="cta-inner text-center rounded" style="background-color: rgba(255, 101, 101, 0.808);">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Compromiso total</span>
+                <span class="section-heading-lower">Garantizado</span>
+              </h2>
+              <p class="mb-0">Con más de 2 años de experiencia a nuestras espaldas, desde Alarcon Barbershop tenemos las habilidades y herramientas necesarias para que nuestros clientes salgan del salón satisfechos con nuestros servicios y felices con su nuevo look.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {% endblock %}
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    {% block content %}
+
+    <section>
+        <div style="width: 60%; background-color: rgba(255, 255, 255, 0.568); padding: 15px;margin: auto ;text-align: center; height: 50px; border-radius: 50px; margin-top: 100px;">
+        <span>Posts pertenecientes a la categoria: {{category_filter_key.nombre}}</span> 
+        </div>
+    </section>
+    {% for p in all_posts_filtered_key %}
+    <section class="page-section clearfix" style="margin-bottom: 200px;">
+        <div class="container" ">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{p.imagen.url}}" alt="" style="width: 650px; height: 450px; object-fit: cover;border-radius: 90px !important;">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color: rgba(149, 195, 255, 0.678); border-radius: 40px !important; ">
+            <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{p.nombre}}</span>
+            </h2>
+            <p class="mb-3">{{p.contenido}}</p>
+            <div style="text-align: right; font-size: 0.9rem;">
+                Autor: {{p.autor}}
+            </div>
+            </div>
+
+            
+        </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    
+
+    {% endblock %}
+
+</body>
+</html>
+
