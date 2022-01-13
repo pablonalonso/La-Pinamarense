@@ -1,3 +1,4 @@
+
 class shopping_cart:
     def __init__(self, request):
         self.request = request
@@ -10,7 +11,7 @@ class shopping_cart:
     
     def agregar(self, producto): 
         if str(producto.id) not in self.carro.keys():
-            self.carro[producto.id]={
+            self.carro[str(producto.id)]={
                 "id_producto": producto.id,
                 "nombre": producto.nombre,
                 "precio": str(producto.precio),
@@ -22,7 +23,7 @@ class shopping_cart:
                 if key == str(producto.id):
                     value["cantidad"] += 1
                     break
-            self.guardar_carro()
+        self.guardar_carro()
 
     def guardar_carro(self):
         self.session["shoppingcart"] = self.carro

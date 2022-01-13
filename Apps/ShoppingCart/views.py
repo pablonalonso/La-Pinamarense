@@ -2,6 +2,7 @@ from .carro import shopping_cart
 from Apps.Store.models import productos_model
 from django.shortcuts import redirect
 
+
 def agregar_producto(request, producto_id):
     carro = shopping_cart(request)
     product_to_add= productos_model.objects.get(id=producto_id)
