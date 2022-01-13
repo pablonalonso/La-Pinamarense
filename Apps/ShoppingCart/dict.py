@@ -1,6 +1,7 @@
 session = {}
 carro = session.get("shoppingcart")
 
+
 if not carro:
     print("No hay carro! Lo crearemos a continuacion...")
     carro = session["shoppingcart"] = {}

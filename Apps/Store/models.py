@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField, PositiveIntegerField
 
+
 # Create your models here.
 
 class category_product_model(models.Model):
@@ -31,3 +32,4 @@ class productos_model(models.Model):
 
     def __str__(self):
         return self.nombre
+

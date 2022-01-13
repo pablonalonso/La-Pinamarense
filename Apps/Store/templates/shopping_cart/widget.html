@@ -11,20 +11,30 @@
     </thead>
 
     <tbody>
-        {% if request.session.carro.items %}
-        {% for key,value in request.session.carro.items %}
+
+        
+        {% if carro_key %}
+        {% for key,value in carro_key.items %}
             <tr class="text-center">
                 <td>{{value.nombre}}</td>
-                <span>${{value.precio}}</span>
+                <td>${{value.precio}}</td>
                 <td>{{value.cantidad}}</td>
                 <td>
-                    <a href="{% url 'cart:add' value.id %}" class="btn btn-sm btn-success">+</a>
-                    <a href="{% url 'cart:sub' value.id %}" class="btn btn-sm btn-success">-</a><br>
+                    
+                    <a href="{% url 'cart:add' key %}" class="btn btn-sm btn-success">+</a>
+                    <a href="{% url 'cart:sub' key %}" class="btn btn-sm btn-success">-</a><br>
+                   
                 </td>
             </tr>
             {% endfor %}
         {% endif %}
+       
     </tbody>
+</table>
+
+   
+
+
 
 
     <tfoot>
